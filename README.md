@@ -1,6 +1,6 @@
 # Sprint_5
 
-Автотесты для сервиса [Stellar Burgers](https://stellarburgers.education-services.ru/) на Python с использованием Selenium и pytest.
+Автотесты для сервиса [Stellar Burgers](https://qa-stellarburgers.education-services.ru/) на Python с использованием Selenium и pytest.
 
 ## Структура проекта
 

@@ -11,16 +11,18 @@ from helpers import (
 )
 
 
-def test_successful_registration(driver):
-    driver.get(REGISTER_URL)
-    fill_registration_form(driver, USER_NAME, generate_email(), generate_password())
+class TestRegistration:
+    
+    def test_successful_registration(self, driver):
+        driver.get(REGISTER_URL)
+        fill_registration_form(driver, USER_NAME, generate_email(), generate_password())
 
-    WebDriverWait(driver, 10).until(EC.url_to_be(LOGIN_URL))
-    assert wait_visible(driver, locators.LOGIN_HEADER).is_displayed()
+        WebDriverWait(driver, 10).until(EC.url_to_be(LOGIN_URL))
+        assert wait_visible(driver, locators.LOGIN_HEADER).is_displayed()
 
 
-def test_registration_with_short_password_shows_error(driver):
-    driver.get(REGISTER_URL)
-    fill_registration_form(driver, USER_NAME, generate_email(), generate_password(5))
+    def test_registration_with_short_password_shows_error(self, driver):
+        driver.get(REGISTER_URL)
+        fill_registration_form(driver, USER_NAME, generate_email(), generate_password(5))
 
-    assert wait_visible(driver, locators.PASSWORD_ERROR).is_displayed()
+        assert wait_visible(driver, locators.PASSWORD_ERROR).is_displayed()
